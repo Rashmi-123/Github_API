@@ -1,0 +1,24 @@
+.ProfileFollowers{
+    text-align: left !important;
+}
+
+.ProfileTitle{
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.card-body{
+    background-color: #b7b742;
+    height: fit-content;
+    max-height: 40vh;
+    overflow: hidden;
+}
+
+.ProfileCard{
+    margin: 40px auto;
+    background-color:#94800a;
+}
+
+.ProfileImage{
+    height: 30vh;
+}

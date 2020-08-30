@@ -1,0 +1,11 @@
+.login-bg{
+  background-image: url('./assessts/img/bg-main.jpg');
+  /* opacity:0.9; */
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: beige;
+  text-align: center;
+}
