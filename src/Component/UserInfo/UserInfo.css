@@ -10,7 +10,7 @@
 .card-body{
     background-color: #b7b742;
     height: fit-content;
-    max-height: 40vh;
+    max-height: 100vh;
     overflow: hidden;
 }
 

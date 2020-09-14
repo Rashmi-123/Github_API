@@ -47,6 +47,26 @@ export function fetchCommits(data){
     });
 }
 
+export function fetchContributors(data){
+    return request({
+        method: 'get',
+        url: API_BASE_URL + "/repos/"+data.username+"/"+data.repo+"/contributors",
+        header : {
+            'Content-Type': 'application/json'
+        }
+    });
+}
+
+export function fetchPulls(data){
+    return request({
+        method: 'get',
+        url: API_BASE_URL + "/repos/"+data.username+"/"+data.repo+"/pulls",
+        header : {
+            'Content-Type': 'application/json'
+        }
+    });
+}
+
 export function getImage(loginrequest){
     return request({
         method: 'get',

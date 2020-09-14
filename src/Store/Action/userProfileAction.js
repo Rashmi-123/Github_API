@@ -30,22 +30,22 @@ export const getUserInfo = (data) =>{
             dispatch(setUserInfo({name:'',avatar:'',starred:'5',followers:[],repository:[]}));
 
             async function getUserInfo(data){
-            const userInfo = await fetchUser(data);
-            let name;
-            name = userInfo.data.name ? userInfo.data.name : userInfo.data.login;
-            sessionStorage.setItem('name',userInfo.data.login)
-            const getfollowers = await getFollowers(userInfo.data.followers_url);
-            getfollowers.data.map(el=>{
-                return followersArray.push(el.login)
-            })
-            post = {
-                name:name,
-                avatar:userInfo.data.avatar_url,
-                starred:'5',
-                followers:followersArray,
-            }
-            const getRepo = await getRepository(userInfo.data.repos_url);
-            return getRepo;
+                const userInfo = await fetchUser(data);
+                let name;
+                name = userInfo.data.name ? userInfo.data.name : userInfo.data.login;
+                sessionStorage.setItem('name',userInfo.data.login)
+                const getfollowers = await getFollowers(userInfo.data.followers_url);
+                getfollowers.data.map(el=>{
+                    return followersArray.push(el.login)
+                })
+                post = {
+                    name:name,
+                    avatar:userInfo.data.avatar_url,
+                    starred:'5',
+                    followers:followersArray,
+                }
+                const getRepo = await getRepository(userInfo.data.repos_url);
+                return getRepo;
         }
 
         const result = getUserInfo(data);
