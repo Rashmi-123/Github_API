@@ -18,34 +18,34 @@ const Repository = () =>{
     let location = useLocation();
     let history = useHistory();
     
-    // useEffect(() => {
-    //    let data ={
-    //         username:location.state.detail.userName,
-    //         repo:location.state.detail.userRepo
-    //     }
-    //     let post;
-    //     const getUserInfo = async(data) =>{
-    //         const getRepoInfo = await fetchRepo(data);
-    //         const getCommits = await fetchCommits(data);
-    //         const getPulls = await fetchPulls(data);
-    //         const getContributors = await fetchContributors(data);
+    useEffect(() => {
+       let data ={
+            username:location.state.detail.userName,
+            repo:location.state.detail.userRepo
+        }
+        let post;
+        const getUserInfo = async(data) =>{
+            const getRepoInfo = await fetchRepo(data);
+            const getCommits = await fetchCommits(data);
+            const getPulls = await fetchPulls(data);
+            const getContributors = await fetchContributors(data);
             
-    //         post = {
-    //             Contributors:getContributors.data.length,
-    //             Issues:getRepoInfo.data.open_issues_count,
-    //             commits:getCommits.data.length,
-    //             pullRequest:getPulls.data.length
-    //         }
-    //         return post;
-    //     }
+            post = {
+                Contributors:getContributors.data.length,
+                Issues:getRepoInfo.data.open_issues_count,
+                commits:getCommits.data.length,
+                pullRequest:getPulls.data.length
+            }
+            return post;
+        }
   
-    //     const result = getUserInfo(data);
-    //     result.then(response=>{
-    //         setRepsitory({Contributors:response.Contributors,Issues:response.Issues,commits:response.commits,pullRequest:response.pullRequest})
-    //     }).catch(err=>{
-    //         console.log(err);
-    //     })
-    // }, [location,history])
+        const result = getUserInfo(data);
+        result.then(response=>{
+            setRepsitory({Contributors:response.Contributors,Issues:response.Issues,commits:response.commits,pullRequest:response.pullRequest})
+        }).catch(err=>{
+            console.log(err);
+        })
+    }, [location,history])
    
     const onClickBack = () =>{
         history.push({
